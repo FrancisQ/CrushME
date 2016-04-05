@@ -1,4 +1,4 @@
-@extends('layout.MainLayout')
+@extends('Layouts.mainLayout')
 
 @section('header')
     @endsection
