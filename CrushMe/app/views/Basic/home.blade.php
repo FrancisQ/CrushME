@@ -4,7 +4,8 @@
     @endsection
 
 @section('main')
-    <img src="../Images/Heart.png" width="300px">
+    <img src="../../../public/Images/heart.png">
+    <img src="../../../public/Images/logo.png">
     @endsection
 
 @section('footer')
