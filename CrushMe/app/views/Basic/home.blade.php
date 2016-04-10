@@ -11,9 +11,6 @@
     @endsection
 
 @section('main')
-    <img src="images/heart.png">
-    <img src="images/logo.png">
-    @endsection
     <div id="imgwrapper">
         {{HTML::image ('images/heart.png', 'image', array('id' => 'logo'))}}
         {{HTML::image ('images/logo.png', 'image', array('id' => 'logo'))}}
@@ -22,8 +19,9 @@
     <div id="btnswrapper">
         {{Form::open()}}
         {{Form::submit('Has a shot', array('name'=> 'yes','id' => 'yes'))}}
-        {{Form::submit('Crush',   array('name'=> 'like','id' => 'crush'))}}
+        {{Form::submit('Crush On',   array('name'=> 'like','id' => 'crushOn'))}}
         {{Form::submit('No Shot',  array('name'=> 'no','id' => 'no'))}}
+        {{Form::submit('Crush It!',   array('name'=> 'like','id' => 'crushIt'))}}
     </div>
 @endsection
 
