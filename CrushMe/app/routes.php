@@ -16,10 +16,8 @@ Route::get('/', function()
 	return View::make('basic.home');
 });
 
-Route::get('/register', function(){
-	return View::make('register');
-} );
+Route::resource('Home','HomeController');
 
-Route::get('/forgotpass', function(){
-	return View::make('forgotpass');
+Route::post('/login', function(){
+	return View::make('login');
 });

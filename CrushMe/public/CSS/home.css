@@ -9,7 +9,7 @@ header{
     height: auto;
 }
 #title{
-    width: 400px;
+    width: 300px;
     margin-left: 400px;
 
 }
@@ -72,5 +72,12 @@ header{
     margin-left: 5px;
     background-color: #D4B56B;
     font-weight: bold;
+}
 
+footer{
+    height: 20px;
+    margin-top: 0px;
+    color: black;
+    float: right
+;
 }

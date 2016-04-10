@@ -26,4 +26,8 @@
 @endsection
 
 @section('footer')
+    {{Form::open(array('Route' => 'Home.showRegister'))}}
+    {{Form::submit('Create an Account!',   array('name'=> 'create','id' => 'create'))}}
+    {{Form::open(array('Route' => '/login'))}}
+    {{Form::submit('Log in',   array('name'=> 'login','id' => 'login'))}}
     @endsection
