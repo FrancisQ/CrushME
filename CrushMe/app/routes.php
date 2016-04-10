@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return View::make('basic.home');
 });
+
+Route::get('/register', function(){
+	return View::make('register');
+} );
+
+Route::get('/forgotpass', function(){
+	return View::make('forgotpass');
+});

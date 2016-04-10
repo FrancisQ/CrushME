@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration {
+class CreateMatchTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table){
+		Schema::create('matches', function(Blueprint $table){
 			$table->increments('id');
 			$table->text('username');
-			$table->text('password');
-			$table->text('email');
-			$table->boolean('verified');
+			$table->text('firstimglink');
+			$table->text('secondimglink');
+			$table->mediumInteger('yes');
+			$table->mediumInteger('no');
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('matches');
 	}
 
 }
