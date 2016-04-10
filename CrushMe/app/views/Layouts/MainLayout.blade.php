@@ -3,11 +3,21 @@
 <head>
 	<meta charset="utf-8"/>
 	@yield('pagetitle')
-	@yield('headers')
+	@yield('head')
 </head>
 <body>
-@yield('header')
-@yield('main')
-@yield('footers')
+
+<header>
+    @yield('header')
+</header>
+
+<div id="main">
+    @yield('main')
+</div>
+
+<footer>
+    @yield('footers')
+</footer>
+
 </body>
 </html>

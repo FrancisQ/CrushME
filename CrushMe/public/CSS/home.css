@@ -1,0 +1,67 @@
+body{
+    margin: 0px;
+    background-image: url("../images/heart.png");
+    background-size: 2000px;
+    background-position:center;
+}
+header{
+    margin: 0px;
+    height: auto;
+}
+#title{
+    width: 400px;
+    margin-left: 400px;
+
+}
+
+#main{
+    height: 500px;
+    background-color: white;
+    border-top: solid 12px #651B1B;
+    border-bottom: solid 12px #651B1B;
+    margin-bottom: 80px;
+
+}
+#imgwrapper{
+    /*border: solid 3px black;*/
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 220px;
+}
+
+#btnswrapper{
+    margin-top: 40px;
+    /*border: solid 3px black;*/
+}
+
+#logo{
+    width: 250px;
+}
+
+#yes{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #4C6758;
+    border: double 8px #2a4738;
+    margin-left: 280px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+#no{
+    padding: 10px;
+    border-radius: 20px;
+    border: double 8px #45090D;
+    margin-left: 170px;
+    background-color: #651B1B;
+    font-weight: bold;
+    color: whitesmoke;
+}
+#crush{
+    padding: 10px;
+    border-radius: 20px;
+    border: double 8px #B29349;
+    margin-left: 165px;
+    background-color: #D4B56B;
+    font-weight: bold;
+
+}
