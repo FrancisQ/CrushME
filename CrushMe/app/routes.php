@@ -18,6 +18,10 @@ Route::get('/', function()
 
 Route::resource('Home','HomeController');
 
-Route::post('/login', function(){
-	return View::make('login');
+Route::get('/login', function(){
+	return View::make('Basic.login');
+});
+
+Route::get('/signup', function(){
+	return View::make('Basic.register');
 });

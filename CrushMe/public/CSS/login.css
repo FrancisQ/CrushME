@@ -1,0 +1,73 @@
+/*Main stuff*/
+body{
+    margin-left: auto;
+    margin-right: auto;
+}
+header{
+    margin: 0px;
+    background-image: url("../images/logo.png");
+    background-size: 200px;;
+    height: 200px;
+    background-repeat: no-repeat;
+    padding-top: 10px;
+    background-position: center;
+}
+
+#main{
+    border-top: solid 9px rgba(101,27,27,.7);
+    border-bottom: solid 9px rgba(101,27,27, .7);
+    background-image: url("../images/backdrop.png");
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+
+
+.wrapper{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 80px;
+    background-color: rgba(101,27,27, .8);
+    border-radius: 20px;
+    color: whitesmoke;
+}
+
+.container{
+    text-align: center;
+}
+
+input{
+    width: 250px;
+    border: solid 3px rgba(200,200,200,.2);
+    text-align: center;
+    border-radius: 6px;
+    background-color: rgba(200,200,200, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+    font-size: 16px;
+}
+button{
+    width: 80%;
+    border-radius: 5px;
+    background-color: rgba(256,256,256,.7);
+    border: outset 3px rgba(200,200,200,.6);
+    margin-left: 10px;
+    margin-top: 10px;
+}
+Form  [type=submit]{
+    width: 80%;
+    border-radius: 5px;
+    background-color: rgba(256,256,256,.7);
+    border: outset 3px rgba(200,200,200,.6);
+    padding: 0px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+h1{
+    padding: 0px;
+    margin-top: 0px;
+    Color: rgba(200,200,200,.7)
+}
+
+
