@@ -13,7 +13,7 @@
             <h1>Register Today!</h1>
 
 
-            {{Form::open()}}
+            {{Form::open(array('action'=>'UserController@store'))}}
             <div>
                 {{Form::text('username', 'Username')}}
                 {{$errors->first('username', '<span class=”error”>:message<span>')}}

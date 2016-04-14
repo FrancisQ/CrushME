@@ -15,9 +15,11 @@
         <div class="container">
             <h1>Welcome</h1>
 
-            {{Form::open()}}
+            {{Form::open(array('action'=>'UserController@enter'))}}
             {{Form::text('username','Username')}}
+            {{$errors->first('username', '<span class=”error”>:message<span>')}}
             {{Form::password('password', ['placeholder' => 'Password'])}}
+            {{$errors->first('password', '<span class=”error”>:message<span>')}}
             {{Form::submit('login')}}
             {{Form::submit('forgot')}}
             {{Form::close()}}
