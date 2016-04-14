@@ -38,7 +38,7 @@
 
             <div>
                 {{Form::submit('Register')}}
-                {{HTML::link('Already a Member?')}}
+                {{HTML::link('/login', 'Already a Member?')}}
             </div>
             {{Form:: close()}}
 

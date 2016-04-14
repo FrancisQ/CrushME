@@ -15,12 +15,12 @@
         <div class="container">
             <h1>Welcome</h1>
 
-            <form class="form">
-                <input type="text" placeholder="Username"><br>
-                <input type="password" placeholder="Password"><br>
-                <button type="submit" id="login">Login</button>
-                <button type="submit" id="Forgot">Forgot Password?</button>
-            </form>
+            {{Form::open()}}
+            {{Form::text('username','Username')}}
+            {{Form::password('password', ['placeholder' => 'Password'])}}
+            {{Form::submit('login')}}
+            {{Form::submit('forgot')}}
+            {{Form::close()}}
         </div>
 
     </div>
