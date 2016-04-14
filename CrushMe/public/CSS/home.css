@@ -4,13 +4,14 @@ body{
     background-size: 2000px;
     background-position:center;
 }
-header{
-    margin: 0px;
-    height: auto;
+#titlewrapper{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 #title{
     width: 300px;
-    margin-left: 400px;
 }
 
 #main{
@@ -19,18 +20,19 @@ header{
     border-top: solid 12px #651B1B;
     border-bottom: solid 12px #651B1B;
     margin-bottom: 80px;
-
 }
+
+
 #imgwrapper{
-    /*border: solid 3px black;*/
-    display: inline-block;
-    margin-top: 50px;
-    margin-left: 220px;
+    width: 760px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #btnswrapper{
-    margin-top: 40px;
-    /*border: solid 3px black;*/
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #logo{
@@ -42,7 +44,6 @@ header{
     border-radius: 20px;
     background-color: #4C6758;
     border: double 8px #2a4738;
-    margin-left: 215px;
     font-weight: bold;
     color: whitesmoke;
 }
@@ -50,7 +51,6 @@ header{
     padding: 10px;
     border-radius: 20px;
     border: double 8px #45090D;
-    margin-left: 315px;
     background-color: #651B1B;
     font-weight: bold;
     color: whitesmoke;
@@ -59,7 +59,6 @@ header{
     padding: 10px;
     border-radius: 20px;
     border: double 8px #B29349;
-    margin-left: 5px;
     background-color: #D4B56B;
     font-weight: bold;
 
@@ -68,7 +67,6 @@ header{
     padding: 10px;
     border-radius: 20px;
     border: double 8px #B29349;
-    margin-left: 5px;
     background-color: #D4B56B;
     font-weight: bold;
 }
@@ -77,6 +75,17 @@ footer{
     height: 20px;
     margin-top: 0px;
     color: black;
-    float: right
-;
+    float: right;
+}
+.link{
+    border-radius: 15px;
+    border: solid 6px rgba(200,200,200,.2);
+    background-color: #4C6758;
+    font-weight: bold;
+    padding: 5px 15px;
+    margin-bottom: 8px;
+    color: whitesmoke;
+}
+a{
+    text-decoration: none;
 }
