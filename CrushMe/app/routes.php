@@ -19,10 +19,12 @@ Route::get('/', function()
 Route::resource('home','HomeController');
 Route::resource('user','UserController');
 
+Route::post('/FINE', "UserController@enter");
+
 Route::get('/login', function(){
-	return View::make('Basic.login');
+	return View::make('basic.login');
 });
 
 Route::get('/signup', function(){
-	return View::make('Basic.register');
+	return View::make('basic.register');
 });

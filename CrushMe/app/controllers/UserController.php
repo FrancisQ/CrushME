@@ -23,6 +23,42 @@ class UserController extends \BaseController {
 		//
 	}
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function enter()
+	{
+		$validation = User::validlogin(Input::all());
+		$username = Input::get('username');
+
+		//check form rules
+		if($validation->passes()){
+			//check database values
+			if(Auth::attempt(array('username' => $username,
+				'password' => Input::get('password'),
+				'verified'=> 1
+			))){
+
+				//set session values
+				Session::put('user', $username);
+
+				//get database values for notes
+				//if record exist
+				return "logged in yay";
+				//Auth denied
+			}else{
+				return Redirect::back()->withInput()->withErrors("Please confirm your email opr soemthng");
+			}
+
+			//input did not match rules
+		}else{
+			echo "hello fdsafdsafdsfdsa";
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}
+	}
+
 
 	/**
 	 * Store a newly created resource in storage.
