@@ -32,25 +32,25 @@ class UserController extends \BaseController {
 	public function store()
 	{
 		//true if not a robot
-		$capt = $_POST['g-recaptcha-response'];
+		//$capt = $_POST['g-recaptcha-response'];
 
 		//checks if it meets all rules
 		$validation = User::Validate(Input::all());
 
 		if($validation->passes()){
-			if($capt){
+			if(1){
 				//add to db
 				$u = new User();
 				$u->username = Input::get('username');
 				$u->email = Input::get('emailaddress');
 				$u->password = Hash::make(Input::get('password'));
-				$u->status = false;
+				$u->verified = false;
 				$u->save();
 
 				//send email
-				Mail::send('emails.welcome', array('email' => Input::get('emailaddress')), function($message) {
-					$message->to( Input::get('emailaddress'))->subject('Confirmation email');
-				});
+//				Mail::send('emails.welcome', array('email' => Input::get('emailaddress')), function($message) {
+//					$message->to( Input::get('emailaddress'))->subject('Confirmation email');
+//				});
 				return "Added! Check your email for confirmation, then <a href=/noteAssignment/public/user>Log in</a>";
 
 			}else{

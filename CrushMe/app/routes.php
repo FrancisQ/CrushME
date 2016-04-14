@@ -16,7 +16,8 @@ Route::get('/', function()
 	return View::make('basic.home');
 });
 
-Route::resource('Home','HomeController');
+Route::resource('home','HomeController');
+Route::resource('user','UserController');
 
 Route::get('/login', function(){
 	return View::make('Basic.login');
