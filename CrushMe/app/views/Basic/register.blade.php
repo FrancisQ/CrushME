@@ -15,12 +15,12 @@
 
             {{Form::open(array('action'=>'UserController@store'))}}
             <div>
-                {{Form::text('username', 'Username')}}
+                {{Form::text('username',  Input::old('Username'),['placeholder' => 'Username'])}}
                 {{$errors->first('username', '<span class=”error”>:message<span>')}}
             </div>
 
             <div>
-                {{Form::email('emailaddress', 'Email')}}
+                {{Form::email('emailaddress',  Input::old('Email'),['placeholder' => 'Email'])}}
                 {{$errors->first('emailaddress', '<span class=”error”>:message<span>')}}
             </div>
 

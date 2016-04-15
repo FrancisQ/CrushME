@@ -1,24 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="shortcut icon" href="{{ URL::asset('images/pencil.ico') }}">
-    <meta charset="UTF-8">
-    <title>Laravel PHP Framework</title>
+@extends('Layouts/MainLayout')
 
-</head>
-<body>
-<h1>Reset Your Password</h1>
+@section('pagetitle')
+    <title> New Password </title>
+@endsection
 
-{{Form::open(['action' => 'UserController@newpass'])}}
-<div>
-    {{Form::label('emailaddress', 'Email Address: ')}}
-    {{Form::email('emailaddress', '')}}
-    {{$errors->first('emailaddress', '<span class=”error”>:message<span>')}}
-</div>
-<div>
-    {{Form::submit('Email New Password')}}
-</div>
-{{Form:: close()}}
+@section('head')
+    <link href="css/login.css" media="all" rel="stylesheet" type="text/css" />
 
-</body>
-</html>
+@endsection
+
+@section('header')
+@endsection
+
+@section('main')
+    <div class="wrapper">
+        <div class="container">
+            <h1>Reset Your Password</h1>
+
+            {{Form::open(['action' => 'UserController@newpass'])}}
+            <div>
+                {{Form::label('emailaddress', 'Email Address: ')}}
+                {{Form::email('emailaddress', '')}}
+                {{$errors->first('emailaddress', '<span class=”error”>:message<span>')}}
+            </div>
+            <div>
+                {{Form::submit('Email New Password')}}
+            </div>
+            {{Form:: close()}}
+
+        </div>
+
+    </div>
+@endsection
+
+@section('footer')
+@endsection

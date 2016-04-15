@@ -24,7 +24,7 @@
             {{Form::submit('login')}}
             {{Form::close()}}
             {{Form::open(array('url'=>'/forgotpass'))}}
-            {{Form::submit('forgot')}}
+            {{Form::submit('Forgot Password?')}}
             {{Form::close()}}
         </div>
 

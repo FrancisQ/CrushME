@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
+
 class UserController extends \BaseController {
 
 	/**
@@ -46,16 +48,15 @@ class UserController extends \BaseController {
 
 				//get database values for notes
 				//if record exist
-				return "logged in yay";
+				return View::make('basic.member');
+
 				//Auth denied
 			}else{
 
 				return Redirect::back()->withInput();
 			}
-
 			//input did not match rules
 		}else{
-			echo "hello fdsafdsafdsfdsa";
 			return Redirect::back()->withInput()->withErrors($validation->messages());
 		}
 	}
@@ -81,14 +82,14 @@ class UserController extends \BaseController {
 				$u->username = Input::get('username');
 				$u->email = Input::get('emailaddress');
 				$u->password = Hash::make(Input::get('password'));
-				$u->verified = false;
+				$u->verified = true;
 				$u->save();
 
 				//send email
 //				Mail::send('emails.welcome', array('email' => Input::get('emailaddress')), function($message) {
 //					$message->to( Input::get('emailaddress'))->subject('Confirmation email');
 //				});
-				return "Added! Check your email for confirmation, then <a href=/noteAssignment/public/user>Log in</a>";
+				return View::make('basic.login');
 
 			}else{
 				return ('Robots not Allowed!');
