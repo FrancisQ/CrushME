@@ -3,6 +3,7 @@
 @section('pagetitle')
     <title> HOME </title>
 @endsection
+
 @section('head')
     <link href="css/login.css" media="all" rel="stylesheet" type="text/css" />
 @endsection
@@ -16,11 +17,13 @@
             <h1>Welcome</h1>
 
             {{Form::open(array('action'=>'UserController@enter'))}}
-            {{Form::text('username','Username')}}
+            {{Form::text('username', Input::old('Username'),['placeholder' => 'Username'])}}
             {{$errors->first('username', '<span class=”error”>:message<span>')}}
             {{Form::password('password', ['placeholder' => 'Password'])}}
             {{$errors->first('password', '<span class=”error”>:message<span>')}}
             {{Form::submit('login')}}
+            {{Form::close()}}
+            {{Form::open(array('url'=>'/forgotpass'))}}
             {{Form::submit('forgot')}}
             {{Form::close()}}
         </div>

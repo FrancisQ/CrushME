@@ -25,6 +25,13 @@ Route::get('/login', function(){
 	return View::make('basic.login');
 });
 
+Route::post('/newpass','UserController@newpass');
+
+
+Route::post('/forgotpass', function(){
+	return View::make('basic.forgotpass');
+});
+
 Route::get('/signup', function(){
 	return View::make('basic.register');
 });

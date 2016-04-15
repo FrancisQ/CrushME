@@ -49,7 +49,8 @@ class UserController extends \BaseController {
 				return "logged in yay";
 				//Auth denied
 			}else{
-				return Redirect::back()->withInput()->withErrors("Please confirm your email opr soemthng");
+
+				return Redirect::back()->withInput();
 			}
 
 			//input did not match rules
