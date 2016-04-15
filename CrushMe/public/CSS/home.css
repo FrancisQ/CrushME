@@ -78,12 +78,14 @@ footer{
 }
 .link{
     border-radius: 15px;
-    border: solid 6px rgba(200,200,200,.2);
-    background-color: #4C6758;
+    border: double 8px rgba(0,0,0,.2);
+    background-color: #D4B56B;
     font-weight: bold;
-    padding: 5px 15px;
+    padding: 0px 25px;
     margin-bottom: 8px;
-    color: whitesmoke;
+    margin-left: 10px;
+    color: rgba(0,0,0,.5);
+    display: inline;
 }
 a{
     text-decoration: none;
