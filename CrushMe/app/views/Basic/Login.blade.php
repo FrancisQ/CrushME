@@ -23,6 +23,7 @@
             {{$errors->first('password', '<span class=”error”>:message<span>')}}
             {{Form::submit('login')}}
             {{Form::close()}}
+
             {{Form::open(array('url'=>'/forgotpass'))}}
             {{Form::submit('Forgot Password?')}}
             {{Form::close()}}

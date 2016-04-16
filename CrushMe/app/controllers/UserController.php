@@ -245,6 +245,19 @@ class UserController extends \BaseController {
 
 		$results = DB::select('select * from matches where username = ?', array($username));
 		$numOfResults = count($results);
+		$testVar = Match::where('username','=',$username)->get();
+		for($i = 0; $i < $numOfResults; $i++){
+
+			if(Input::get('delete'.$i) === 'yes') {
+
+				$testVar[$i]->delete();
+				//echo "been found my testVar $testVar[0]->username";
+				//DB::delete('delete from matches where crushimg = ?', array($i));
+			}
+		}
+
+		$results = DB::select('select * from matches where username = ?', array($username));
+		$numOfResults = count($results);
 		$crushes = null;
 		$percentages = null;
 		for($i = 0; $i < $numOfResults; $i++){
