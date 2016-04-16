@@ -33,6 +33,8 @@ Route::post('/forgotpass', function(){
 	return View::make('basic.forgotpass');
 });
 
+Route::post('/result', 'ResultController@yes');
+
 Route::get('/signup', function(){
 	return View::make('basic.register');
 });

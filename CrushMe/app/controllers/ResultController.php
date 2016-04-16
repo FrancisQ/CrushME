@@ -3,9 +3,13 @@
 class ResultController extends BaseController
 {
 
-	public function updateAverage()
-	{
-
+	public function edit(){
+		return "finally!";
 	}
+
+	public function yes(){
+		return View::make('basic.gif');
+	}
+
 
 }

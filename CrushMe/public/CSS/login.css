@@ -21,7 +21,6 @@ header{
     padding-bottom: 20px;
 }
 
-
 .wrapper{
     width: 300px;
     margin-left: auto;
@@ -30,6 +29,33 @@ header{
     background-color: rgba(101,27,27, .8);
     border-radius: 20px;
     color: whitesmoke;
+}
+
+.wrapper2{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 80px;
+    background-color: rgba(101,27,27, .8);
+    border-radius: 20px;
+    color: whitesmoke;
+}
+#buttonwrap{
+    text-align: center;
+    margin: 35px;
+}
+
+.link{
+    border-radius: 15px;
+    border: solid 6px rgba(200,200,200,.2);
+    background-color: #4C6758;
+    font-weight: bold;
+    padding: 5px 15px;
+    margin-bottom: 8px;
+    color: whitesmoke;
+}
+a{
+    text-decoration: none;
 }
 
 .container{

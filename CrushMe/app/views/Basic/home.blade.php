@@ -22,11 +22,10 @@
             {{HTML::image ('images/heart.png', 'image', array('id' => 'logo'))}}
         </div>
         <div id="btnswrapper">
-            {{Form::open()}}
+            {{Form::open(array('action'=>'ResultController@yes'))}}
             {{Form::submit('Has a shot', array('name'=> 'yes','id' => 'yes'))}}
-            {{Form::submit('Crush On',   array('name'=> 'like','id' => 'crushOn'))}}
             {{Form::submit('No Shot',  array('name'=> 'no','id' => 'no'))}}
-            {{Form::submit('Crush It!',   array('name'=> 'like','id' => 'crushIt'))}}
+            {{Form::close()}}
         </div>
 
 @endsection
