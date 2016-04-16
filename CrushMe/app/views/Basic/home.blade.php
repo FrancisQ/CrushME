@@ -24,6 +24,8 @@
         <div id="btnswrapper">
             {{Form::open(array('action'=>'ResultController@yes'))}}
             {{Form::submit('Has a shot', array('name'=> 'yes','id' => 'yes'))}}
+            {{Form::close()}}
+            {{Form::open(array('action'=>'ResultController@no'))}}
             {{Form::submit('No Shot',  array('name'=> 'no','id' => 'no'))}}
             {{Form::close()}}
         </div>

@@ -34,6 +34,9 @@ Route::post('/forgotpass', function(){
 });
 
 Route::post('/result', 'ResultController@yes');
+Route::post('/result', 'ResultController@no');
+Route::post('/register', 'UserController@store');
+
 
 Route::get('/signup', function(){
 	return View::make('basic.register');
