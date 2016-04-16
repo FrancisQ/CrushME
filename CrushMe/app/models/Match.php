@@ -23,7 +23,7 @@ class Match extends Eloquent implements UserInterface, RemindableInterface {
      */
     protected $table = 'matches';
 
-    protected $fillable = ['username', 'firstimglink', 'secondimglink', 'yes', 'no'];
+    protected $fillable = ['username', 'crushimg', 'yes', 'no'];
 
     /**
      * The attributes excluded from the model's JSON form.
