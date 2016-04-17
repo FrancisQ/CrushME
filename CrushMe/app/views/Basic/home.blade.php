@@ -10,7 +10,7 @@
 @endsection
 @section('header')
     <div id="titlewrapper">
-        {{HTML::image ('images/title.png', 'image', array('id' => 'title'))}}
+        <a href="/">{{HTML::image ('images/title.png', 'image', array('id' => 'title'))}}</a>
     </div>
 @endsection
 
