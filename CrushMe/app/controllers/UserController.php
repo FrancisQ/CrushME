@@ -218,12 +218,6 @@ class UserController extends \BaseController {
 
 				if($numOfResults < 3) {
 					DB::insert('insert into matches (username, crushimg, yes, no) values (?, ?, ?,?)', array($username, $data, 0,0));
-//					$match = new Match;
-//					$match->username = $username;
-//					$match->crushimg = $data;
-//					$match->yes = 0;
-//					$match->no = 0;
-//					$match->save();
 				}
 			}
 		}

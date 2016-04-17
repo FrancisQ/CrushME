@@ -14,22 +14,26 @@ class ResultController extends BaseController
 		//find out how many members there are
 		$results = DB::select('select * from users');
 		$numOfResults = count($results);
+		$resultsNo = 0;
+		while($resultsNo == 0) {
 
-		//randomly pic one and save it
-		$random = rand(1, $numOfResults);
+			//randomly pic one and save it
+			$random = rand(0, $numOfResults-1);
+			$randUser = DB::table('users')->get();
+			$this->user = $randUser[$random];//User::where('id', '=', $random)->first();
+			$username = $this->user->username;
 
-		$this->user = User::where('id','=',$random)->first();
-		$username = $this->user->username;
-
-		//find its crushes
-		//$results = DB::select('select * from matches where username ='.$username);
-		$results = DB::table('matches')->where('username', '=', $username )->get();
-
+			//find its crushes
+			//$results = DB::select('select * from matches where username ='.$username);
+			$results = DB::table('matches')->where('username', '=', $username)->get();
+			$resultsNo = count($results);
+		}
 		$val = count($results);
-		$random2 = rand(0, $val-1);
-
-		$crush = $results[$random2];
-
+		$crush = null;
+		if($val > 0) {
+			$random2 = rand(0, $val - 1);
+			$crush = $results[$random2];
+		}
 
 		return View::make('basic.home',['user'      =>$this->user,
 										'crush'     =>$crush
@@ -43,8 +47,8 @@ class ResultController extends BaseController
 		$id = Input::get('id');
 
 		DB::table('matches')->where('id','=',$id)->increment('yes');
-
-		return View::make('basic.gif');
+		$imglink = "yes".rand(0,6).".gif";
+		return View::make('basic.gif', ['imgsrc'=>$imglink]);
 	}
 
 	public function no(){
@@ -52,9 +56,9 @@ class ResultController extends BaseController
 
 		$id = Input::get('id');
 
-		DB::table('matches')->where('id','=',$id)->increment('yes');
-
-		return View::make('basic.gif');
+		DB::table('matches')->where('id','=',$id)->increment('no');
+		$imglink = "no".rand(0,6).".gif";
+		return View::make('basic.gif', ['imgsrc'=>$imglink]);
 	}
 
 
