@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'crushme',
 			'username'  => 'root',
-			'password'  => 'system',
+			'password'  => 'Sardine_C4n',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

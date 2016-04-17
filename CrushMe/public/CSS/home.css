@@ -26,13 +26,15 @@ body{
     width: 760px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
     text-align: center;
 }
 
 #btnswrapper{
-    width: 200px;
+    width: 210px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
     text-align: center;
 }
 
@@ -42,6 +44,7 @@ body{
 
 #yes{
     padding: 10px;
+    float: left;
     border-radius: 20px;
     background-color: #4C6758;
     border: double 8px #2a4738;
@@ -49,8 +52,9 @@ body{
     color: whitesmoke;
 }
 #no{
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 20px;
+    float:right;
     border: double 8px #45090D;
     background-color: #651B1B;
     font-weight: bold;
