@@ -17,15 +17,17 @@
 @section('main')
 
         <div id="imgwrapper">
-            {{HTML::image ('images/heart.png', 'image', array('id' => 'logo'))}}
+            <img id="logo" src="{{"data:image/jpeg;base64,".$user->img}}">
             {{HTML::image ('images/logo.png', 'image', array('id' => 'logo'))}}
-            {{HTML::image ('images/heart.png', 'image', array('id' => 'logo'))}}
+            <img id="logo" src="{{"data:image/jpeg;base64,".$crush->crushimg}}">
         </div>
         <div id="btnswrapper">
             {{Form::open(array('action'=>'ResultController@yes'))}}
+            {{Form::hidden('id',$crush->id)}}
             {{Form::submit('Has a shot', array('name'=> 'yes','id' => 'yes'))}}
             {{Form::close()}}
             {{Form::open(array('action'=>'ResultController@no'))}}
+            {{Form::hidden('id',$crush->id)}}
             {{Form::submit('No Shot',  array('name'=> 'no','id' => 'no'))}}
             {{Form::close()}}
         </div>

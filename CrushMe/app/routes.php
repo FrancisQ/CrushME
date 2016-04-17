@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('basic.home');
-});
-
+Route::get('/', 'ResultController@newmatch');
 
 Route::post('/enter', "UserController@enter");
 
@@ -31,8 +27,8 @@ Route::post('/forgotpass', function(){
 	return View::make('basic.forgotpass');
 });
 
-Route::post('/result', 'ResultController@yes');
-Route::post('/result', 'ResultController@no');
+Route::post('yes', 'ResultController@yes');
+Route::post('no', 'ResultController@no');
 
 Route::get('/signup', function(){
 	return View::make('basic.register');

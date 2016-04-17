@@ -61,7 +61,7 @@ class UserController extends \BaseController {
 				for($i = 0; $i < $numOfResults; $i++){
 					$crushes[$i] = $results[$i]->crushimg;
 					if(($results[$i]->no + $results[$i]->yes)>0) {
-						$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
+						$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
 					}
 					else{
 						$percentages[$i] = 0;
@@ -98,49 +98,46 @@ class UserController extends \BaseController {
 		$validation = User::Validate(Input::all());
 
 		if($validation->passes()){
-			if(1){
-				//add to db
-				$u = new User();
-				$u->username = Input::get('username');
-				$u->email = Input::get('emailaddress');
-				$u->password = Hash::make(Input::get('password'));
-				$u->verified = true;
-				$u->save();
 
-				//send email
+			//add to db
+			$u = new User();
+			$u->username = Input::get('username');
+			$u->email = Input::get('emailaddress');
+			$u->password = Hash::make(Input::get('password'));
+			$u->verified = true;
+			$u->save();
+
+			//send email
 //				Mail::send('emails.welcome', array('email' => Input::get('emailaddress')), function($message) {
 //					$message->to( Input::get('emailaddress'))->subject('Confirmation email');
 //				});
-				//set session values
-				$username = $u->username;
-				Session::put('user', $username);
+			//set session values
+			$username = $u->username;
+			Session::put('user', $username);
 
-				//get database values for notes
-				//if record exist
-				$this->user = User::where('username','=',$username)->first();
+			//get database values for notes
+			//if record exist
+			$this->user = User::where('username','=',$username)->first();
 
-				$results = DB::select('select * from matches where username = ?', array($username));
-				$numOfResults = count($results);
-				$crushes = null;
-				$percentages = null;
-				for($i = 0; $i < $numOfResults; $i++){
-					$crushes[$i] = $results[$i]->crushimg;
-					if(($results[$i]->no + $results[$i]->yes)>0) {
-						$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
-					}
-					else{
-						$percentages[$i] = 0;
-					}
+			$results = DB::select('select * from matches where username = ?', array($username));
+			$numOfResults = count($results);
+			$crushes = null;
+			$percentages = null;
+			for($i = 0; $i < $numOfResults; $i++){
+				$crushes[$i] = $results[$i]->crushimg;
+				if(($results[$i]->no + $results[$i]->yes)>0) {
+					$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
 				}
-
-
-				return View::make('basic.member',['user'=>$this->user,'crushes'=>$crushes,'percentages'=>$percentages]);
-//				return View::make('basic.member',['user'=>$this->user]);
-				//return View::make('basic.login');
-
-			}else{
-				return ('Robots not Allowed!');
+				else{
+					$percentages[$i] = 0;
+				}
 			}
+
+
+			return View::make('basic.member',['user'=>$this->user,'crushes'=>$crushes,'percentages'=>$percentages]);
+//				return View::make('basic.member',['user'=>$this->user]);
+			//return View::make('basic.login');
+
 		}else{
 			return Redirect::back()->withInput()->withErrors($validation->messages());
 		}
@@ -263,7 +260,7 @@ class UserController extends \BaseController {
 		for($i = 0; $i < $numOfResults; $i++){
 			$crushes[$i] = $results[$i]->crushimg;
 			if(($results[$i]->no + $results[$i]->yes)>0) {
-				$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
+				$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
 			}
 			else{
 				$percentages[$i] = 0;

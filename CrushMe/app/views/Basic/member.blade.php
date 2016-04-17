@@ -14,7 +14,7 @@
     {{HTML::image ('images/heart.png', 'image', array('id' => 'heart'))}}
    </div>
     <div id="membername">
-       <h1> Logged in as: {{$user->username}}</h1>
+       <h1> Welcome {{$user->username}}</h1>
     </div>
     @endsection
 
