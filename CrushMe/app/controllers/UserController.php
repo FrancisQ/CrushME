@@ -61,7 +61,7 @@ class UserController extends \BaseController {
 				for($i = 0; $i < $numOfResults; $i++){
 					$crushes[$i] = $results[$i]->crushimg;
 					if(($results[$i]->no + $results[$i]->yes)>0) {
-						$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
+						$percentages[$i] = round(($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100);
 					}
 					else{
 						$percentages[$i] = 0;
@@ -126,7 +126,7 @@ class UserController extends \BaseController {
 			for($i = 0; $i < $numOfResults; $i++){
 				$crushes[$i] = $results[$i]->crushimg;
 				if(($results[$i]->no + $results[$i]->yes)>0) {
-					$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
+					$percentages[$i] = round(($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100);
 				}
 				else{
 					$percentages[$i] = 0;
@@ -254,7 +254,7 @@ class UserController extends \BaseController {
 		for($i = 0; $i < $numOfResults; $i++){
 			$crushes[$i] = $results[$i]->crushimg;
 			if(($results[$i]->no + $results[$i]->yes)>0) {
-				$percentages[$i] = ($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100;
+				$percentages[$i] = round(($results[$i]->yes / ($results[$i]->no + $results[$i]->yes))*100);
 			}
 			else{
 				$percentages[$i] = 0;
