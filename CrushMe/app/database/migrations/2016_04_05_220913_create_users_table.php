@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
 			$table->text('username');
 			$table->text('password');
 			$table->text('email');
+			$table->binary('img');
 			$table->boolean('verified');
 		});
 	}

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchTable extends Migration {
+class CreateGifsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,10 @@ class CreateMatchTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('matches', function(Blueprint $table){
+		Schema::create('gifs', function(Blueprint $table){
 			$table->increments('id');
-			$table->text('username');
-			$table->binary('crushimg');
-			$table->mediumInteger('yes');
-			$table->mediumInteger('no');
+			$table->binary('gifdata');
+			$table->boolean('yes');
 		});
 	}
 
@@ -28,7 +26,7 @@ class CreateMatchTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('matches');
+		Schema::drop('gifs');
 	}
 
 }

@@ -25,9 +25,7 @@ Route::get('/login', function(){
 
 Route::post('/newpass','UserController@newpass');
 
-Route::get('/member', function(){
-	return View::make('basic.member');
-});
+Route::post('updatePics', 'UserController@updatePics');
 
 Route::post('/forgotpass', function(){
 	return View::make('basic.forgotpass');
@@ -35,9 +33,9 @@ Route::post('/forgotpass', function(){
 
 Route::post('/result', 'ResultController@yes');
 Route::post('/result', 'ResultController@no');
-Route::post('/register', 'UserController@store');
-
 
 Route::get('/signup', function(){
 	return View::make('basic.register');
 });
+
+Route::resource('user','UserController');

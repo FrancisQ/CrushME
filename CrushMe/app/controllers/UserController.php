@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends \BaseController {
 
+	protected $user;
+	public function __construct(User $user){
+		$this->user = $user;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -48,7 +53,24 @@ class UserController extends \BaseController {
 
 				//get database values for notes
 				//if record exist
-				return View::make('basic.member');
+				$this->user = User::where('username','=',$username)->first();
+				$results = DB::select('select * from matches where username = ?', array($username));
+				$numOfResults = count($results);
+				$crushes = null;
+				$percentages = null;
+				for($i = 0; $i < $numOfResults; $i++){
+					$crushes[$i] = $results[$i]->crushimg;
+					if(($results[$i]->no + $results[$i]->yes)>0) {
+						$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
+					}
+					else{
+						$percentages[$i] = 0;
+					}
+				}
+
+
+				return View::make('basic.member',['user'=>$this->user,'crushes'=>$crushes,'percentages'=>$percentages]);
+//				return View::make('basic.member',['user'=>$this->user]);
 
 				//Auth denied
 			}else{
@@ -89,7 +111,32 @@ class UserController extends \BaseController {
 //				Mail::send('emails.welcome', array('email' => Input::get('emailaddress')), function($message) {
 //					$message->to( Input::get('emailaddress'))->subject('Confirmation email');
 //				});
-				return View::make('basic.login');
+				//set session values
+				$username = $u->username;
+				Session::put('user', $username);
+
+				//get database values for notes
+				//if record exist
+				$this->user = User::where('username','=',$username)->first();
+
+				$results = DB::select('select * from matches where username = ?', array($username));
+				$numOfResults = count($results);
+				$crushes = null;
+				$percentages = null;
+				for($i = 0; $i < $numOfResults; $i++){
+					$crushes[$i] = $results[$i]->crushimg;
+					if(($results[$i]->no + $results[$i]->yes)>0) {
+						$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
+					}
+					else{
+						$percentages[$i] = 0;
+					}
+				}
+
+
+				return View::make('basic.member',['user'=>$this->user,'crushes'=>$crushes,'percentages'=>$percentages]);
+//				return View::make('basic.member',['user'=>$this->user]);
+				//return View::make('basic.login');
 
 			}else{
 				return ('Robots not Allowed!');
@@ -150,12 +197,81 @@ class UserController extends \BaseController {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function updatePics()
 	{
-		//
+		$username = Input::get('username');
+		//return "$username";
+
+
+		$user = User::where('username','=',$username)->first();
+
+		if(!null == (Input::file('crushpic'))){
+			$extension = Input::file('crushpic')->getClientOriginalName();
+
+			//check for jpeg or gif
+			if(preg_match('/(.jpe?g)|(.png)|(.gif)$/i', $extension)){
+				$file = Input::file('crushpic');
+				$img = file_get_contents($file);
+				$data = base64_encode($img);
+
+				$results = DB::select('select * from matches where username = ?', array($username));
+				$numOfResults = count($results);
+
+				if($numOfResults < 3) {
+					DB::insert('insert into matches (username, crushimg, yes, no) values (?, ?, ?,?)', array($username, $data, 0,0));
+//					$match = new Match;
+//					$match->username = $username;
+//					$match->crushimg = $data;
+//					$match->yes = 0;
+//					$match->no = 0;
+//					$match->save();
+				}
+			}
+		}
+		if(!null == (Input::file('memberpic'))){
+			$extension = Input::file('memberpic')->getClientOriginalName();
+
+			//check for jpeg or gif
+			if(preg_match('/(.jpe?g)|(.png)|(.gif)$/i', $extension)){
+				$file = Input::file('memberpic');
+				$img = file_get_contents($file);
+				$data = base64_encode($img);
+				$user->img = $data;
+				$user->save();
+			}
+		}
+
+		$results = DB::select('select * from matches where username = ?', array($username));
+		$numOfResults = count($results);
+		$testVar = Match::where('username','=',$username)->get();
+		for($i = 0; $i < $numOfResults; $i++){
+
+			if(Input::get('delete'.$i) === 'yes') {
+
+				$testVar[$i]->delete();
+				//echo "been found my testVar $testVar[0]->username";
+				//DB::delete('delete from matches where crushimg = ?', array($i));
+			}
+		}
+
+		$results = DB::select('select * from matches where username = ?', array($username));
+		$numOfResults = count($results);
+		$crushes = null;
+		$percentages = null;
+		for($i = 0; $i < $numOfResults; $i++){
+			$crushes[$i] = $results[$i]->crushimg;
+			if(($results[$i]->no + $results[$i]->yes)>0) {
+				$percentages[$i] = $results[$i]->yes / ($results[$i]->no + $results[$i]->yes);
+			}
+			else{
+				$percentages[$i] = 0;
+			}
+		}
+
+
+		return View::make('basic.member',['user'=>$user,'crushes'=>$crushes,'percentages'=>$percentages]);
 	}
 
 
